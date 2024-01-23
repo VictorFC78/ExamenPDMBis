@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navegador"
+    app:startDestination="@id/productos">
+
+    <fragment
+        android:id="@+id/productos"
+        android:name="com.example.examendiciembrebis.Productos"
+        android:label="fragment_productos"
+        tools:layout="@layout/fragment_productos" >
+        <action
+            android:id="@+id/action_productos_to_seleccionProducto"
+            app:destination="@id/seleccionProducto" />
+    </fragment>
+    <fragment
+        android:id="@+id/seleccionProducto"
+        android:name="com.example.examendiciembrebis.SeleccionProducto"
+        android:label="fragment_seleccion_producto"
+        tools:layout="@layout/fragment_seleccion_producto" >
+        <action
+            android:id="@+id/action_seleccionProducto_to_confirmacionDatos"
+            app:destination="@id/confirmacionDatos" />
+        <argument
+            android:name="producto"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/confirmacionDatos"
+        android:name="com.example.examendiciembrebis.ConfirmacionDatos"
+        android:label="fragment_confirmacion_datos"
+        tools:layout="@layout/fragment_confirmacion_datos" >
+        <action
+            android:id="@+id/action_confirmacionDatos_to_finalizarPedido"
+            app:destination="@id/finalizarPedido" />
+        <argument
+            android:name="producto"
+            app:argType="string" />
+        <argument
+            android:name="nombre"
+            app:argType="string" />
+        <argument
+            android:name="cantidad"
+            app:argType="integer" />
+        <argument
+            android:name="horario"
+            app:argType="integer" />
+    </fragment>
+    <fragment
+        android:id="@+id/finalizarPedido"
+        android:name="com.example.examendiciembrebis.FinalizarPedido"
+        android:label="fragment_finalizar_pedido"
+        tools:layout="@layout/fragment_finalizar_pedido" />
+</navigation>
